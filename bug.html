@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <p>This is a paragraph.</p>
+  <div id="myDiv"></div>
+  <script>
+    //Attempting to access a non-existent attribute
+    let text = document.getElementById("myDiv").getAttribute("data-nonexistent");
+    console.log(text); // Logs null.  Error not thrown
+
+    //The following will cause a console error
+    let element = document.getElementById("nonexistent");
+    //console.log(element.innerHTML); // Throws TypeError: Cannot read properties of null (reading 'innerHTML') 
+  </script>
+</body>
+</html>
