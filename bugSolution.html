@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <p>This is a paragraph.</p>
+  <div id="myDiv" data-myAttribute="hello"></div>
+  <script>
+    //Checking for null before using the attribute
+    let attributeValue = document.getElementById("myDiv").getAttribute("data-myAttribute");
+    let text = (attributeValue === null) ? "Attribute not found" : attributeValue;
+    console.log(text); //Logs "hello"
+
+    let otherAttributeValue = document.getElementById("myDiv").getAttribute("data-nonexistent");
+    let otherText = (otherAttributeValue === null)? "Attribute not found" : otherAttributeValue;
+    console.log(otherText); // Logs "Attribute not found"
+
+    //Safe way to handle element access
+    let element = document.getElementById("myDiv");
+    let innerHTML = (element === null) ? "Element not found": element.innerHTML;
+    console.log(innerHTML); //Logs the innerHTML of the element
+
+  </script>
+</body>
+</html>
